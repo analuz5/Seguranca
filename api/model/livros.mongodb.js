@@ -1,13 +1,14 @@
 use('seguranca')
 db.carros.insertOne({
-    "placa": "9780807286005",
-    "marca" : "Harry Potter e a Pedra Filosofal",
-    "modelo" : "Harry Potter e la pietra filosofale",
-    "cor": 304,
-    "proprietario": new Date('2014-07-02'),
-    "nomeAluno": ["infantil","fantasia","ação"],
-    "raAluno": "Saraiva",
-    "contato": ["São Mateus","São Lucas"],
+    "placa": "QOH5049",
+    "marca" : "TOYOTA",
+    "modelo" : "ETIOS SD XPLUS AT",
+    "cor": "Prata",
+    "proprietario": "Ana Clara Luz",
+    "nomeAluno": "Ana Clara Luz",
+    "raAluno": "1780782313029",
+    "contato": "(11) 99985-9321",
+    "validade": new Date('2026-05-26'),
 
 })
 //Criando um índice para evitar registros duplicados
