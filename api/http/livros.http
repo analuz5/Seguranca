@@ -1,5 +1,5 @@
 //Testes da API da Livraria - Livros
-@baseURL = http://localhost:4000/api/livros
+@baseURL = http://localhost:4000/api/seguranca
 
 ###
 // GET - Obtém todos os livros

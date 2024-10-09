@@ -1,5 +1,5 @@
 import express from 'express'
-import rotasLivros from './routes/livros.js'
+import rotasLivros from './routes/seguranca.js'
 
 const app = express()
 const PORT = 4000

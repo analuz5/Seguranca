@@ -13,7 +13,7 @@
     "nodejs",
     "express"
   ],
-  "author": "Ricardo Leme",
+  "author": "Ana Clara Luz e Maria Luiza Spinardi",
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",

@@ -7,7 +7,7 @@ import { check, validationResult } from 'express-validator'
 /* Definido as variáveis de conexão */
 const uri = 'mongodb://localhost:27017'
 const client = new MongoClient(uri)
-const dbName = 'livraria'
+const dbName = 'seguranca'
 const router = express.Router()
 // Função para conectar no banco de dados
 async function connectToDatabase() {
