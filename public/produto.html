@@ -10,9 +10,47 @@
 <body>
     <h1>Detalhes do Produto</h1>
     <p><a href="index.html">Voltar</a></p>
-    <p><a href="https://www.procon.sp.gov.br" target="_blank">
-        Procon SP
-       </a>
-    </p>
+    
+    <table border="1">
+        <thead>
+            <tr> <!-- tr = table row-->
+                <th>Código</th> <!-- th = table header-->
+                <th>Descrição</th>
+                <th>Foto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01420</td> <!--td = table data -->
+                <td>
+                   <a href="produto.html">Arroz Agulhinha</a> 
+                </td>
+                <td>
+                    <img src="images/arroz.jpg"
+                         title="Arroz Camil"
+                         alt="Pacote de Arroz Camil" 
+                         class="foto"
+                         />
+                </td>
+                <td class="preco">27.90</td>
+            </tr>
+            <tr>
+                <td>0930</td>
+                <td>Feijão Preto</td>
+                <td>
+                    <img src="images/feijao.png"
+                         title="Feijão Camil"
+                         alt="Pacote de Feijão Camil" 
+                         class="foto"/>
+                </td>
+                <td class="preco">7.45</td>
+            </tr>
+            <tr>
+                <td colspan="3">Total Geral</td>
+                <td class="preco">35.35</td>
+            </tr>
+        </tbody>
+     </table>
 </body>
 </html>
