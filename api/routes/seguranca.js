@@ -20,56 +20,51 @@ async function connectToDatabase() {
 }
  
  
-/* Definindo a rota /livros via método GET */
+/* Definindo a rota /seguranca via método GET */
 router.get('/', async (req, res) => {
     try {
         await connectToDatabase()
         const db = client.db(dbName)
-        const livros = db.collection('livros')
-        let result = await livros.find().toArray()
+        const alunos = db.collection('alunos')
+        let result = await alunos.find().toArray()
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json({ "error": `${err.message}` })
     }
 })
  
-/* Definindo a rota /livros/:id via método GET */
+/* Definindo a rota /seguranca/:raAluno via método GET */
 router.get('/id/:id', async (req, res) => {
     try {
         await connectToDatabase()
         const db = client.db(dbName)
-        const livros = db.collection('livros')
-        let result = await livros.find({ 'ISBN': req.params.id }).toArray()
+        const seguranca = db.collection('seguranca')
+        let result = await seguranca.find({ 'raAluno': req.params.id }).toArray()
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json({ "error": `${err.message}` })
     }
 })
  
-const validaLivro = [
-    //Validações da collection livro
-    check('ISBN').isString({ min: 13, max: 13 })
-        .withMessage('O ISBN deve ter 13 números'),
-    check('titulo').notEmpty()
-        .withMessage('O título do livro é obrigatório'),
-    check('tituloEs').optional(), //é opcional
-    check('paginas').isInt({ min: 1 })
-        .withMessage('O número de páginas deve ser positivo'),
-    check('lancamento').isISO8601()
+const validaSeguranca = [
+    //Validações da collection seguranca
+    check('raAluno').isString({ min: 13, max: 13 })
+        .withMessage('O raAluno deve ter 13 números'),
+    check('placa').notEmpty()
+        .withMessage('A placa do veículo é obrigatória'),
+    check('contato').isString({ min: 11, max: 11 })
+        .withMessage('O número de contato deve estar tudo junto, com DDD, sem espaço e sem caracteres especiais'),
+    check('validadeCarteirinha').isISO8601()
         .withMessage('A data deve estar no formato YYYY-MM-DD'),
-    check('generos').isArray()
-        .withMessage('Gêneros deve ser uma lista de strings'),
-    check('editora').notEmpty()
-        .withMessage('A editora é obrigatória'),
-    check('autores').isArray()
-        .withMessage('Autores deve ser uma lista'),
-    check('avaliacao').matches(/^[\u2B50]{1,5}$/)
-        .withMessage('A avaliação deve ser de 1 a 5⭐')
-    // https://www.htmlsymbols.xyz/unicode/U+2B50
+    check('nomeAluno').notEmpty()
+        .withMessage('O nome do Aluno é obrigatório'),
+    check('curso').notEmpty()
+        .withMessage('O nome do curso é obrigatório e deve estar abreviado. Ex: GTI'),
+   
 ]
  
-/* Definindo a rota /livros via método POST */
-router.post('/', validaLivro, async (req, res) => {
+/* Definindo a rota /seguranca via método POST */
+router.post('/', validaSeguranca, async (req, res) => {
     //Verificando os eventuais erros
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -78,40 +73,40 @@ router.post('/', validaLivro, async (req, res) => {
     try {
         await connectToDatabase()
         const db = client.db(dbName)
-        const livros = db.collection('livros')
+        const seguranca = db.collection('seguranca')
         //Obtendo os dados que vem na requisição
-        const novoLivro = req.body
-        //Inserindo um novo livro no MongoDB
-        const result = await livros.insertOne(novoLivro)
+        const novoSeguranca = req.body
+        //Inserindo um novo veiculo no MongoDB
+        const result = await seguranca.insertOne(novoSeguranca)
         //Retornamos uma mensagem de sucesso
         res.status(201).json({
-            message: `Livro inserido com sucesso
-              com o id ${result.insertedId}`
+            message: `Novo veículo inserido com sucesso
+              com o  ${result.insertedId}`
         })
     } catch (err) {
         res.status(500).json({ "error": err.message })
     }
 })
  
-/* Definindo a rota /livros via método DELETE */
-router.delete('/:isbn', async (req, res) => {
+/* Definindo a rota /alunos via método DELETE */
+router.delete('/:raAluno', async (req, res) => {
     try {
         await connectToDatabase()
         const db = client.db(dbName)
-        const livros = db.collection('livros')
-        //Obtendo o ISBN da requisição
-        const { isbn } = req.params
-        //Deletando o livro no MongoDB
+        const alunos = db.collection('alunos')
+        //Obtendo o raAluno da requisição
+        const { raAluno } = req.params
+        //Deletando o Aluno no MongoDB
         const result = await
-            livros.deleteOne({ ISBN: isbn })
+            alunos.deleteOne({ raAluno: raAluno })
         if (result.deletedCount === 0) {
             return res.status(404).json({
-                message: 'Livro não encontrado!'
+                message: 'Aluno não encontrado!'
             })
         }
         //retornando uma resposta de sucesso
         res.status(200).json({
-            message: 'Livro removido com sucesso'
+            message: 'Aluno removido com sucesso'
         })
     } catch (err) {
         res.status(500).json({ "error": err.message })
@@ -119,32 +114,31 @@ router.delete('/:isbn', async (req, res) => {
 })
  
  
-router.put('/:isbn', validaLivro, async (req, res) => {
+router.put('/:raAluno', validaSeguranca, async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
     }
     try {
-        //conectando ao mongodb
         await connectToDatabase()
         const db = client.db(dbName)
-        const livros = db.collection('livros')
+        const alunos = db.collection('alunos')
         // obtendo os dados para alteração
-        const { isbn } = req.params
+        const { raAluno } = req.params
         const dadosAtualizados = req.body
         //atualizar os dados no banco
-        const result = await livros.updateOne(
-            { ISBN: isbn }, //criterio de busca
+        const result = await alunos.updateOne(
+            { raAluno: raAluno },
             { $set: dadosAtualizados }
         )
         if (result.matchedCount === 0) {
             return res.status(404).json(
-                { message: 'livro não encontrado' }
+                { message: 'Dados não encontrado' }
             )
         }
         //retornamos a mensagem q deu certo
         res.status(200).json(
-            { message: 'livro alterado com sucesso' }
+            { message: 'Dados atualizados com sucesso' }
         )
     } catch (err) {
         res.status(500).json({ error: err.message })

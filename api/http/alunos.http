@@ -1,0 +1,59 @@
+@baseURL = http://localhost:4000/api/alunos
+
+###
+// GET - Obtém todos os alunos
+GET {{baseURL}}
+Content-Type: application/json
+//Para obter todos os alunos. 
+
+
+###
+// GET - Obtém os dados pelo raAluno
+GET {{baseURL}}/raAluno/1780782313029
+Content-Type: application/json
+//Para obter os dados de um aluno específico usando seu raAluno.
+
+###
+// PUT - Altera o veículo pelo raAluno
+PUT {{baseURL}}/1780782313029
+Content-Type: application/json
+
+{
+    "raAluno": "1780782313029",
+    "veiculo": "carro",
+    "placa": "ABC0001",
+    "marca": "HONDA",
+    "modelo": "CIVIC",
+    "cor": "Azul",
+    "proprietario": "Ana Clara Luz"
+}
+
+###
+// DELETE - Remove o aluno pelo raAluno
+DELETE {{baseURL}}/1780782313029
+Content-Type: application/json
+
+
+
+
+###
+//POST - Adiciona um novo aluno
+POST {{{baseURL}}}
+Content-Type: : application/json
+{   
+    "nomeAluno": "Maria Luiza Spinardi",
+    "raAluno": "1780782313049",
+    "validadeCarteirinha": "2026-05-30",
+    "curso": "GTI",
+    "contato": "11999859323",
+    "veiculos": [
+        {
+            "veiculo": "carro",
+            "placa": "BNW8842",
+            "marca": "GM",
+            "modelo": "MISTO CAMIONETERA",
+            "cor": "Azul",
+            "proprietario": "Edson Spinardi",
+        }
+    ]
+}
