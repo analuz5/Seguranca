@@ -1,5 +1,3 @@
-const apiUrl = 'http://localhost:4000/api/livros'
-
 // Seleciona o botão de voltar
 const btnVoltar = document.querySelector('.btn-voltar');
 // Verifica se há uma página anterior no histórico
@@ -14,6 +12,10 @@ if (window.history.length > 1) {
         window.location.href = 'index.html';  // Redireciona para a página inicial
     });
 }
+
+const apiUrl = 'http://localhost:4000/api/livros'
+
+
 
 function carregarLivros() {
     fetch(apiUrl)
