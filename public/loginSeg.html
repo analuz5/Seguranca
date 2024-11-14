@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="images/undraw_login.svg" alt="login"
+         class="login-image">
+         <h2>Login</h2>
+         <form id="loginFormSeg">
+            <input type="text" id="usuarioSeg"
+             placeholder="Login do Segurança" required>
+            <input type="password" id="senhaSeg"
+            placeholder="Senha" required>
+            <button type="submit">Login</button> 
+         </form>
+         <p id="error-message" class="error-message"></p>
+         <button class="btn-voltar">Voltar</button>
+    </div>
+    <script src="js/loginSeg.js"></script>
+</body>
+</html>
