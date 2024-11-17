@@ -1,6 +1,7 @@
 // Seleciona o botão de voltar
 const btnVoltar = document.querySelector('.btn-voltar');
 // Verifica se há uma página anterior no histórico
+if (btnVoltar) {
 if (window.history.length > 1) {
     // Se houver, adiciona a ação de voltar
     btnVoltar.addEventListener('click', function() {
@@ -11,6 +12,9 @@ if (window.history.length > 1) {
     btnVoltar.addEventListener('click', function() {
         window.location.href = 'index.html';  // Redireciona para a página inicial
     });
+}
+} else {
+    console.error("Botão de voltar não encontrado.");
 }
 
 const apiUrl = 'http://localhost:4000/api/livros'
