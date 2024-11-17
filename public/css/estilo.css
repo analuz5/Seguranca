@@ -22,12 +22,12 @@ body {
 /* Estilo da página de Inicial */
 
 .containerInicial {
-    max-width: 1200px;
-    margin: 100px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 80%;
+    margin: 50px auto;
     padding: 20px;
-    box-shadow: 0 0 20px #802626;
-    border-radius: 13px;
-    background-color: rgba(250, 253, 253, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 2px 20px #802626;
 }
 
 .containerInicial h1{
@@ -128,20 +128,23 @@ a { /* Para tirar o sublinhado*/
 }
 
 .login-container button {
-    width: 100%;
-    padding: 12px;
-    box-shadow: 0 0 10px #802626;
+    width: 50%;
+    align-items: center;
+    padding: 0.7rem;
+    margin: 0.5rem;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    background-color: #000000;
+    color: #fff;
 }
 
 .login-container button:hover {
     background-color: #000000;
     color: #fff;
-    box-shadow:none;
+    box-shadow: 0 0 10px #802626;
 }
 
 .delete{
