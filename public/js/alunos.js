@@ -30,11 +30,10 @@ function carregarAlunos() {
             data.forEach(aluno => {
                 const linha = alunosTable.insertRow()
                 linha.innerHTML = `
-            <td>${seguranca.raAluno}</td>
-            <td>${seguranca.placa}</td>
+            <td>${validaSeguranca.raAluno}</td>
+            <td>${valudaSeguranca.placa}</td>
             <td>${seguranca.paginas}</td>
             <td>${seguranca.generos}</td>
-            <td>${seguranca.avaliacao}</td>
             <td> 
             <button class="delete" onclick="excluirAluno('${seguranca.raAluno}')">🗑 Excluir</button>
 
@@ -88,24 +87,18 @@ function excluirAluno(raAluno) {
 document.getElementById('alunoForm').addEventListener('submit', function(event) {
     event.preventDefault()
     
-    const avaliacaoSelecionada = document.querySelector('input[name="avaliacao"]:checked')
-    if (!avaliacaoSelecionada) {
-        alert('❌ Por favor, selecione uma avaliação')
-        return
-    }
+
     
     const isEditMode = this.dataset.mode === 'edit'
     
-    const livro = {
+    const validaSeguranca = {
         raAluno: document.getElementById('raAluno').value,
-        titulo: document.getElementById('titulo').value,
-        tituloEs: document.getElementById('tituloEs').value,
-        paginas: document.getElementById('paginas').value,
-        lancamento: document.getElementById('lancamento').value,
+        placa: document.getElementById('titulo').value,
+        contato: document.getElementById('tituloEs').value,
+        validadeCarteirinha: document.getElementById('paginas').value,
+        nomeAluno: document.getElementById('lancamento').value,
         generos: document.getElementById('generos').value.split(',').filter(g => g.trim() !== ''),
-        editora: document.getElementById('editora').value,
-        autores: document.getElementById('autores').value.split(',').filter(a => a.trim() !== ''),
-        avaliacao: avaliacaoSelecionada.value
+        curso: document.getElementById('editora').value,
     }
 
     const method = isEditMode ? 'PUT' : 'POST'
@@ -114,7 +107,7 @@ document.getElementById('alunoForm').addEventListener('submit', function(event) 
     fetch(url, {
         method: method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(livro)
+        body: JSON.stringify(validaSeguranca)
     })
     .then(response => {
         if (!response.ok) {
@@ -186,13 +179,7 @@ function editarLivro(raAluno) {
             document.getElementById('editora').value = livro.editora || ''
             document.getElementById('autores').value = Array.isArray(livro.autores) ? livro.autores.join(',') : ''
             
-            // Marca o radio button correto da avaliação
-            if (livro.avaliacao) {
-                const avaliacaoRadio = document.querySelector(`input[name="avaliacao"][value="${livro.avaliacao}"]`)
-                if (avaliacaoRadio) {
-                    avaliacaoRadio.checked = true
-                }
-            }
+        
 
             // Modifica o formulário para modo de edição
             const form = document.getElementById('alunoForm')
