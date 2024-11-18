@@ -3,7 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const usuario = document.getElementById('usuarioAdm').value
     const senha = document.getElementById('senhaAdm').value
     if (btoa(usuario) === 'YWRtaW4=' && btoa(senha) === 'MTIzNA==') {
-        window.location.href = 'alunos.html'//abre a página
+        window.location.href = 'categoriaAdm'//abre a página
     } else {
         document.getElementById('error-message').textContent = '❌Usuário ou senha informados estão incorretos!'
     }

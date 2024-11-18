@@ -2,43 +2,29 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livros</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Livros</title>
+     <link rel="stylesheet" href="css/estilo.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
-     <button class="btn-voltar">Voltar</button>
+     <div class="crud-container">
+          <h1>Portal <span>Segurança</span> Fatec</h1>
+          <h2>Placa do veículo:</h2>
+          <!-- formulário de livros -->
+          <form id="livroForm">
+               <input type="text" id="placa" maxlength="17" class="input-field " placeholder="PLACA Ex: ABC0001">
 
-<div class="crud-container">
-    <h1>Portal <span>Segurança</span> Fatec</h1>
-    <!-- formulário de livros -->
-     <form id="livroForm">
-
-        <a href="#">
-           <h3>Carro</h3>
-                <img src="#" alt="Carro">
-        </a>
-        <a href="#">
-           <h3>Moto</h3>
-                <img src="#" alt="Moto">
-        </a>
-        <a href="#">
-           <h3>Nome Aluno</h3>
-                <img src="#" alt="Nome do Aluno">
-        </a>
-        <a href="#">
-           <h3>RA Aluno</h3>
-                <img src="#" alt="RA do Aluno">
-        </a>
-         </div>
-        <!-- botão -->
+               <button>Buscar</button>
+               <button class="btn-voltar">Voltar</button>
+     </div>
+     <!-- botão -->
 
      </form>
-
+     <script src="js/buscar.js"></script>
 
 </body>
 

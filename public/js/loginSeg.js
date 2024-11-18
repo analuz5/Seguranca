@@ -14,7 +14,7 @@ const btnVoltar = document.querySelector('.btn-voltar');
 if (window.history.length > 1) {
     // Se houver, adiciona a ação de voltar
     btnVoltar.addEventListener('click', function() {
-        window.history.back('Seg/categoriaSeg.html');
+        window.history.back('categoriaSeg.html');
     });
 } else {
     // Se não houver, redireciona para a página inicial ou outra página

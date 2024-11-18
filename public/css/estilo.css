@@ -24,7 +24,7 @@ body {
 .containerInicial {
     background-color: rgba(255, 255, 255, 0.9);
     max-width: 80%;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 20px #802626;
@@ -82,8 +82,16 @@ a { /* Para tirar o sublinhado*/
     
 }
 
-
-
+.col-1 img{
+    width: 14rem;
+    display: block; /* Transforma em um bloco para usar o margin auto */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+.col-2 img{
+    width: 7.5rem;
+    display: block;
+    margin: 0 auto;
+}
 
 
 /* Container principal */
@@ -139,6 +147,7 @@ a { /* Para tirar o sublinhado*/
     transition: background-color 0.3s ease;
     background-color: #000000;
     color: #fff;
+
 }
 
 .login-container button:hover {
@@ -155,6 +164,43 @@ a { /* Para tirar o sublinhado*/
     color: #ef4444;
     text-align: center;
     margin-top: 10px;
+}
+/* Estilo do CRUD de livros */
+.classContainer{
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.classContainer h1 {
+    font-size: 28px;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.classContainer button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.classContainer button {
+    background-color: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.classContainer button:hover {
+    background-color: #2563eb;
 }
 
 /* Estilo do CRUD de livros */
