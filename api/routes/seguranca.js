@@ -25,8 +25,8 @@ router.get('/', async (req, res) => {
     try {
         await connectToDatabase()
         const db = client.db(dbName)
-        const alunos = db.collection('alunos')
-        let result = await alunos.find().toArray()
+        const alunos = db.collection('seguranca')
+        let result = await seguranca.find().toArray()
         res.status(200).json(result)
     } catch (err) {
         res.status(500).json({ "error": `${err.message}` })
