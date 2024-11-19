@@ -3,7 +3,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const usuario = document.getElementById('usuarioAdm').value
     const senha = document.getElementById('senhaAdm').value
     if (btoa(usuario) === 'YWRtaW4=' && btoa(senha) === 'MTIzNA==') {
-        window.location.href = 'categoriaAdm'//abre a página
+        window.location.href = 'categoriaSeg.html'//abre a página
     } else {
         document.getElementById('error-message').textContent = '❌Usuário ou senha informados estão incorretos!'
     }
@@ -14,7 +14,7 @@ const btnVoltar = document.querySelector('.btn-voltar');
 if (window.history.length > 1) {
     // Se houver, adiciona a ação de voltar
     btnVoltar.addEventListener('click', function() {
-        window.history.back();
+        window.history.back('categoriaAdm.html');
     });
 } else {
     // Se não houver, redireciona para a página inicial ou outra página
