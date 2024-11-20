@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segurança</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
 
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Livros</title>
-     <link rel="stylesheet" href="css/estilo.css">
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+  <body>
+    <div class="crud-container">
+      <h1>Portal <span>Segurança</span> Fatec</h1>
+      <h2>Selecione uma categoria para busca:</h2>
+      <div class="colum">
+        <!-- formulário de livros -->
+        <div class="col-1">
+          <a href="buscaCarro.html">
+            <h3>Carro</h3>
+            <img src="img/carro.png" alt="Carro" />
+          </a>
+        </div>
+        <div class="col-2">
+          <a href="buscaMoto.html">
+            <h3>Moto</h3>
+            <img src="img/moto.png" alt="Moto" />
+          </a>
+        </div>
+        <div class="col-3">
+          <a href="buscaNome.html">
+            <h3>Nome Aluno</h3>
+            <img src="img/aluno.png" alt="Nome do Aluno" />
+          </a>
+        </div>
+        <div class="col-4">
+          <a href="buscaRA.html">
+            <h3>RA Aluno</h3>
+            <img src="img/ra.png" alt="RA do Aluno" />
+          </a>
+        </div>
+      </div>
+      <button class="btn-voltar">Voltar</button>
+    </div>
+    <!-- botão -->
 
-<body>
-
-     
-
-     <div class="crud-container">
-          <h1>Portal <span>Segurança</span> Fatec</h1>
-          <h2>Selecione uma categoria para busca:</h2>
-          <div class="colum">
-          <!-- formulário de livros -->
-               <div class="col-1">
-                    <a href="buscaCarro.html">
-                         <h3>Carro</h3>
-                         <img src="#" alt="Carro">
-                    </a>
-               </div>
-               <div class="col-2">
-                    <a href="buscaMoto.html">
-                         <h3>Moto</h3>
-                         <img src="#" alt="Moto">
-                    </a>
-               </div>
-               <div class="col-3">
-                    <a href="buscaNome.html">
-                         <h3>Nome Aluno</h3>
-                         <img src="buscaNome.html" alt="Nome do Aluno">
-                    </a>
-               </div>
-               <div class="col-4">
-                    <a href="buscaRA.html">
-                         <h3>RA Aluno</h3>
-                         <img src="#" alt="RA do Aluno">
-                    </a>
-               </div>
-          </div>
-               <button class="btn-voltar">Voltar</button>
-     </div>
-     <!-- botão -->
-
-     <script src="js/categoriaAdm.js"></script>
-</body>
-
+    <script src="js/categoriaAdm.js"></script>
+    <script src="js/seguranca.js"></script>
+  </body>
 </html>

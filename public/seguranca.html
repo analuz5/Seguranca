@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livros</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
         <button class="btn-voltar">Voltar</button>
 <div class="crud-container">
-    <img src="images/undraw_books.svg" alt="Livros"
-    height="100" />
-    <h1>Gerenciamento de Livros</h1>
-    <!-- formulário de livros -->
+    <h1>Gerenciamento das Informações</h1>
+    <!-- formulário de informações -->
      <form id="alunoForm">
         <input type="text" id="raAluno" maxlength="13" class="input-field " placeholder="RA ALUNO Ex: 978-3-16-148410-0">
         <input type="text" id="placa" placeholder="Placa" class="input-field">
@@ -24,20 +21,19 @@
         <input type="date" id="vencimento" class="input-field">
         <input type="text" id="nomeAluno" placeholder="Insira do nome do Aluno" class="input-field">
         <input type="text" id="curso" placeholder="curso" class="input-field">
-        <!-- avaliação com estrelas -->
         
         <!-- botão -->
-         <button type="submit" id="btnSalvar">💾 Salvar Livro</button>
+         <button type="submit" id="btnSalvar">💾 Salvar</button>
      </form>
-     <!-- Tabela dos livros -->
       <table id="infosTable">
         <thead>
             <tr>
                 <th>RA ALUNO</th>
-                <th>Título</th>
-                <th>Páginas</th>
-                <th>Gêneros</th>
-                <th>Avaliação</th>
+                <th>Placa</th>
+                <th>Contato</th>
+                <th>Validade Carteirinha</th>
+                <th>nome Aluno</th>
+                <th>Curso</th>
                 <th class="small-button">Opções</th>
             </tr>
         </thead>
